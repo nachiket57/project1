@@ -83,19 +83,7 @@ class homepage extends page {
 
   move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
   header('Location: index.php?page=htmlTable&filename='.$fileName);
-    //Allow csv file formats
-      if($fileType != "csv" ) {
-             echo "Sorry, only CSV files are allowed. ";
-        }
     
-    else {
-            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file))
-               //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-               header('Location: index.php?page=htmlTable&filename='.$fileName);
-            else 
-               echo "Sorry, there was an error uploading your file.";
-        
-    }
   }
 }
 
