@@ -80,8 +80,8 @@ class homepage extends page {
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $fileType = pathinfo($target_file,PATHINFO_EXTENSION);
     $fileName=pathinfo($target_file,PATHINFO_BASENAME);
-  
-/move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
+
+  move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
   header('Location: index.php?page=htmlTable&filename='.$fileName);
     //Allow csv file formats
       if($fileType != "csv" ) {

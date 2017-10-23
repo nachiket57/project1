@@ -1,9 +1,10 @@
-//new class htmlTable that extends the page class
-//gets the filename (ie. csv file) from the server and opens it for processing
-//loads the file into an array
-//puts the datasets ($data) form the array into the table class object
-//
-<?php 
+
+
+<?php
+// new class htmlTable that extends the page class
+// gets the filename (ie. csv file) from the server and opens it for processing
+// loads the file into an array
+// puts the datasets ($data) form the array into the table class object
 class htmlTable extends page{
 
 	public function get(){

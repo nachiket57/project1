@@ -1,6 +1,6 @@
-//Heading for table
-//
+
 <?php
+//Heading for table
  class htmlTags {
    static public function horizontalRule() {
      return '<hr>';
