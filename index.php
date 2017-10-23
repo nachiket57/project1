@@ -71,7 +71,7 @@ class homepage extends page {
        $form .= '<input type="file" name="fileToUpload" id="fileToUpload">';
        $form .= '<input type="submit" value="Upload " name="submit">';
        $form .= '</form> ';
-       $this->html .= '<h1>Upload Form</h1>';
+       $this->html .= '<h1 align="center"> <u> Upload Form </u> </h1>';
        $this->html .= $form;
    }
   public function post() {
@@ -87,11 +87,10 @@ class homepage extends page {
   }
 }
 
-//
+
 //table rendering of the csv data sets
 //loads into array
 //renders the datasets into a table stepwise
-//
 
 class htmlTable extends page{
   public function get(){
@@ -101,7 +100,7 @@ class htmlTable extends page{
   $tablehtml="";
 //$data = array();
 $i=0;
- $tablehtml .='<table border= "1">';
+ $tablehtml .='<table border : 3 px solid black; border-collapse :collapse; table style="width :80%">';
       while(! feof($file))
        {
          $data= fgetcsv($file);
