@@ -67,21 +67,21 @@ abstract class page {
 //
 class homepage extends page {
    public function get() {
-       $form = '<form action="index.php" method="post" enctype="multipart/form-data">';
-       $form .= '<input type="file" name="fileToUpload" id="fileToUpload">';
-       $form .= '<input type="submit" value="Upload " name="submit">';
-       $form .= '</form> ';
+       $frm = '<form action="index.php" method="post" enctype="multipart/form-data">';
+       $frm .= '<input type="file" name="fileToUpload" id="fileToUpload">';
+       $frm .= '<input type="submit" value="Upload " name="submit">';
+       $frm .= '</form> ';
        $this->html .= '<h1 align="center"> <u> Upload Form </u> </h1>';
-       $this->html .= $form;
+       $this->html .= $frm;
    }
   public function post() {
     //Path of the directory where the csv file has to be saved
-    $target_dir = "./uploads/";
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-    $fileType = pathinfo($target_file,PATHINFO_EXTENSION);
-    $fileName=pathinfo($target_file,PATHINFO_BASENAME);
+    $targetdir = "./uploads/";
+    $targetfile = $targetdir . basename($_FILES["fileToUpload"]["name"]);
+    $fileType = pathinfo($targetfile,PATHINFO_EXTENSION);
+    $fileName=pathinfo($targetfile,PATHINFO_BASENAME);
 
-  move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
+  move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $targetfile);
   header('Location: index.php?page=htmlTable&filename='.$fileName);
     
   }
@@ -95,26 +95,26 @@ class homepage extends page {
 class htmlTable extends page{
   public function get(){
   
-    $filename = $_REQUEST['filename'];
-    $file = fopen("uploads/".$filename,"r");
-  $tablehtml="";
+    $fname = $_REQUEST['filename'];
+    $file = fopen("uploads/".$fname,"r");
+  $table="";
 //$data = array();
 $i=0;
- $tablehtml .='<table border : 3 px solid black; border-collapse :collapse; table style="width :80%">';
+ $table .='<table border : 3 px solid black; border-collapse :collapse; table style="width :80%" ; table>';
       while(! feof($file))
        {
          $data= fgetcsv($file);
          $count=count($data);
-         $tablehtml .='<tr>';
+         $table .='<tr>';
          for($i=0;$i<$count;$i++){
-           $tablehtml .='<td>'.$data[$i].'</td>';
+           $table .='<td>'.$data[$i].'</td>';
          }
-         $tablehtml .='</tr>';        
+         $table .='</tr>';        
                     
        }
-          $tablehtml .='</table>';
+          $table .='</table>';
 fclose($file);
-  stringFunctions::printThis($tablehtml);
+  stringFunctions::printThis($table);
   
   }
 }

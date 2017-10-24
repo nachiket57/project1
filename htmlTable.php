@@ -9,23 +9,23 @@ class htmlTable extends page{
 
 	public function get(){
 	
-		$filename = $_REQUEST('filename');
-		$file = fopen("uploads/".$filename,"r");
- $data=new array();
- $tablehtml ='<table>';
+		$fname = $_REQUEST('filename');
+		$file = fopen("uploads/".$fname,"r");
+ $arr=new array();
+ $table ='<table>';
 			while(! feof($file))
 			 {
-			   $data= fgetcsv($file));
+			   $arr= fgetcsv($file));
                     echo "test";
-          $tablehtml . ='<tr><td>'.$data[0].'</td>'; 
-          $tablehtml . ='<td>'.$data[1].'</td>';
-          $tablehtml . ='<td>'.$data[2].'</td></tr>';         
+          	$table . ='<tr><td>'.$arr[0].'</td>'; 
+          	$table . ='<td>'.$arr[1].'</td>';
+          	$table . ='<td>'.$arr[2].'</td></tr>';         
                     
 			 }
-          $tablehtml . ='</table>';
+          	$table . ='</table>';
 
 fclose($file);
-	print($tablehtml);
+	print($table);
 	
 	}
 
